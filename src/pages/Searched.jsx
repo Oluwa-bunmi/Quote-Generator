@@ -1,20 +1,16 @@
 import { useState, useEffect } from "react";
-import { FaSearch } from "react-icons/fa";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import Searchbar from "../component/Searchbar";
 const Searched = () => {
   let params = useParams();
-  const [input, setInput] = useState("");
-  const navigate = useNavigate();
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    navigate("/searched/" + input);
-  };
+  const [searchedAdvice, setsearchedAdvice] = useState([]);
   const fetchSearch = (name) => {
     axios
       .get(`https://api.adviceslip.com/advice/search/${name}`)
       .then((res) => {
         console.log(res);
+        setsearchedAdvice(res.data.slips);
       })
       .catch((err) => {
         console.log(err);
@@ -25,25 +21,17 @@ const Searched = () => {
   }, [params.search]);
 
   return (
-    <div className="text-[red]">
-      <form
-        className=" bg-[#e7e4e4] px-4 py-2 rounded-[10px]"
-        onSubmit={handleSubmit}
-      >
-        <div className="flex items-center justify-center gap-2">
-          <FaSearch
-            className="text-primary"
-            onClick={() => navigate("/searched/" + input)}
-          />
-          <input
-            type="text"
-            placeholder="Search for advice"
-            className="bg-transparent w-full outline-none"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-          />
-        </div>
-      </form>
+    <div className="w-full h-full flex justify-center items-center backdrop-brightness-50">
+      <div className="bg-[whitesmoke] w-[88%] h-[66%] md:w-[60%] md:h-[58%] flex flex-col gap-4 p-[6%] md:p-[3%] rounded-[25px] overflow-y-auto">
+        <Searchbar />
+        {searchedAdvice.map((item) => {
+          return (
+            <li key={item.id} className="text-lg">
+              {item.advice}
+            </li>
+          );
+        })}
+      </div>
     </div>
   );
 };
