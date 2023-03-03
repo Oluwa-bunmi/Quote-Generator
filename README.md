@@ -1,1 +1,1 @@
-A random quote generator built with ReactJs.
+Advice App built with ReactJs.
