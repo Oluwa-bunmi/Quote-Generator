@@ -1,1 +1,1 @@
-Advice App built with ReactJs.
+An advice generator application that uses the Advice Slip API to generate advices.

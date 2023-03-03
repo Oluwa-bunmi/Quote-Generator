@@ -25,7 +25,7 @@ const Home = () => {
     fetchAdvice();
   }, []);
   return (
-    <div class="w-full h-full flex justify-center items-center backdrop-brightness-50">
+    <div className="w-full h-full flex justify-center items-center backdrop-brightness-50">
       <div className="bg-[whitesmoke] w-[82%] h-[44%] md:w-[40%] md:h-[44%] flex flex-col items-center p-[2%] rounded-[25px]">
         <form
           className=" bg-[#e7e4e4] px-4 py-2 rounded-[10px]"
