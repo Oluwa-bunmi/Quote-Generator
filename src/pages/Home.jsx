@@ -1,12 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
 import Searchbar from "../component/Searchbar";
-// import { FaSearch } from "react-icons/fa";
 const Home = () => {
   const [advice, setAdvice] = useState("");
-  //   const [input, setInput] = useState("");
-
   const fetchAdvice = () => {
     axios
       .get("https://api.adviceslip.com/advice")

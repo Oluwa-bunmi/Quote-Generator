@@ -10,7 +10,7 @@ const Searchbar = () => {
        };
   return (
     <form
-      className=" bg-[#e7e4e4] px-4 py-2 rounded-[10px]"
+      className=" bg-[#e7e4e4] px-4 py-2 w-full border-2 border-primary rounded-[10px]"
       onSubmit={handleSubmit}
     >
       <div className="flex items-center justify-center gap-2">

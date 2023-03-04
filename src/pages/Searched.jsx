@@ -9,7 +9,6 @@ const Searched = () => {
     axios
       .get(`https://api.adviceslip.com/advice/search/${name}`)
       .then((res) => {
-        console.log(res);
         setsearchedAdvice(res.data.slips);
       })
       .catch((err) => {
