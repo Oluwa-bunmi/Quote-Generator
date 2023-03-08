@@ -15,7 +15,7 @@ const Searchbar = () => {
     >
       <div className="flex items-center justify-center gap-2">
         <FaSearch
-          className="text-primary"
+          className="text-primary cursor-pointer"
           onClick={() => navigate("/searched/" + input)}
         />
         <input
